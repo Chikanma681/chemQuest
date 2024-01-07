@@ -67,6 +67,40 @@
     font-weight: 600;
     border-radius: 1px;
     padding: 15px;
-    margin: 15px;
+    margin: auto;
   }
   
+  /* Sim.css */
+.simulation-results {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #4444ff;
+  border-radius: 5px;
+  background-color: #242424;
+}
+
+.result-summary {
+  margin-bottom: 20px;
+}
+
+.result-summary p {
+  margin: 5px 0;
+}
+
+.concentration-list {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.chart-container {
+  text-align: center;
+}
+
+.simulation-chart {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 20px;
+}

@@ -54,7 +54,14 @@ def run_algorithm():
         result = heatExchanger(ff,area,U,[Thi,Tho,Tci,Tco])
         print(result)
     elif calcType == "pipe":
-        result = pipelineDesign(data)
+        d = data['diameter']
+        t = data['thickness']
+        g = data['grade']
+        OP = data['operatingPressure']
+        JF = data['jointFactor']
+        
+
+        result = pipelineDesign(d,t,g,OP,JF)
     elif calcType == "calculate":
         Ca = data['initialConcCa']
         Cb = data['initialConcCb']

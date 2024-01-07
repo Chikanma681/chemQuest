@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Form, FormGroup, Label, Input, Button, Row, Col } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button, Row, Col, Alert} from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
 import './../css/Sim.css'; // Import the CSS file
+import axios from 'axios';
 
 const HeatExchanger = () => {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const HeatExchanger = () => {
   const [Tho, setTho] = useState(0);
   const [Tci, setTci] = useState(0);
   const [Tco, setTco] = useState(0);
+  const [simulationResult, setSimulationResult] = useState(null);
 
   const fluidFoulingData = {
     "Ammonia vapor": "0.0001763",
@@ -29,12 +31,32 @@ const HeatExchanger = () => {
     "Transformer Oil": "0.0001763"
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform calculations or other actions using the entered values
 
-    // Redirect or perform other actions after submitting the form
-    navigate('/'); // Redirect to the main menu or another appropriate page
+    // Prepare the data payload
+    const data = {
+      calcType: 'hx',
+      foulingFluid,
+      area,
+      heatCoefficient,
+      Thi,
+      Tho,
+      Tci,
+      Tco
+    };
+
+    try {
+      // Make an API request to your backend server
+      const response = await axios.post('http://127.0.0.1:5000/run', data);
+      setSimulationResult(response.data);
+      // Handle the response if needed
+      console.log('API Response:', response.data);
+
+    } catch (error) {
+      // Handle errors or display a message to the user
+      console.error('API Error:', error);
+    }
   };
 
 
@@ -48,6 +70,9 @@ const HeatExchanger = () => {
   return (
     <div className="batch-reactor-screen" style={{width:'100%'}}> {/* Apply the heat-exchanger-screen class */}
       <h2>Heat Exchanger Simulation</h2>
+      <alert color="dark" className='pipeline-alert'>
+        Fouling Factors values are for One Shell + 2 Tube Passes type Heat Exchangers
+      </alert>
       <Form onSubmit={handleSubmit}  style={{ width: '100%', margin: '0 auto' }}>
         <Row>
           <Col lg={6}>
@@ -140,9 +165,15 @@ const HeatExchanger = () => {
         </Row>
         <button type="submit" className="btn-submit">Simulate</button> {/* Apply the btn-submit class */}
       </Form>
-    </div>
-  );
-};
+
+      {simulationResult && (
+  <div className="simulation-results" style={{ margin: '20px' }}>
+    <h3>Batch Reactor Simulation Results</h3>
+    <div className="result-summary">
+      <p>The fouling factor of the selected liquid is {foulingFluid}</p>
+      <p>The heat energy required to run the heat exchange is {simulationResult['Heat Energy Required']} Watts</p>
+  </div></div>
+)}
+</div>)}
 
 export default HeatExchanger;
-

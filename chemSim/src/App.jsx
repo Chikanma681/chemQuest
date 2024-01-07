@@ -15,14 +15,15 @@ function App() {
     <>
     <div style={{backgroundColor: '#242424', minHeight:"140vh"}}>
     <Header/>
+
       <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/menu" element={<ProcessMenu />} />
       <Route path="/batch" element={<BatchReactor/>}/>
       <Route path="/hx" element={<HeatExchanger />}/>
       <Route path="/pipe" element={<Pipeline />}/>
-
       </Routes>
+
     </div>
     </>
   )

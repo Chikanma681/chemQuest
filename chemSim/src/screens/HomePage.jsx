@@ -1,5 +1,4 @@
 import React from "react";
-import { signInWithGoogle } from "../config/firebase";
 import Header from "../components/Header";
 import Animation from "../components/Animation";
 import './../css/HomePage.css';
