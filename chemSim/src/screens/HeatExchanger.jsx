@@ -116,7 +116,7 @@ const HeatExchanger = () => {
               />
             </FormGroup>
             <FormGroup className="form-group"> {/* Apply the form-group class */}
-              <Label for="Thi">Hot temperature (in):</Label>
+              <Label for="Thi">Hot temperature Celsius(in):</Label>
               <Input
                 type="number"
                 id="Thi"
@@ -129,7 +129,7 @@ const HeatExchanger = () => {
           </Col>
           <Col lg={6}>
             <FormGroup className="form-group"> {/* Apply the form-group class */}
-              <Label for="Tho">Hot temperature (out):</Label>
+              <Label for="Tho">Hot temperature Celsius (out):</Label>
               <Input
                 type="number"
                 id="Tho"
@@ -140,7 +140,7 @@ const HeatExchanger = () => {
               />
             </FormGroup>
             <FormGroup className="form-group"> {/* Apply the form-group class */}
-              <Label for="Tci">Cold temperature (in):</Label>
+              <Label for="Tci">Cold temperature Celsius (in):</Label>
               <Input
                 type="number"
                 id="Tci"
@@ -151,7 +151,7 @@ const HeatExchanger = () => {
               />
             </FormGroup>
             <FormGroup className="form-group"> {/* Apply the form-group class */}
-              <Label for="Tco">Cold temperature (out):</Label>
+              <Label for="Tco">Cold temperature Celsius (out):</Label>
               <Input
                 type="number"
                 id="Tco"
@@ -168,10 +168,10 @@ const HeatExchanger = () => {
 
       {simulationResult && (
   <div className="simulation-results" style={{ margin: '20px' }}>
-    <h3>Batch Reactor Simulation Results</h3>
+    <h3>Heat Exchanger Simulation Results</h3>
     <div className="result-summary">
       <p>The fouling factor of the selected liquid is {foulingFluid}</p>
-      <p>The heat energy required to run the heat exchange is {simulationResult['Heat Energy Required']} Watts</p>
+      <p>The heat energy required to run the heat exchange is {simulationResult['Heat Energy Required'].toFixed(4)} Watts</p>
   </div></div>
 )}
 </div>)}

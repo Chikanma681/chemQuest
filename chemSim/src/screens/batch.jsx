@@ -92,7 +92,7 @@ const BatchReactor = () => {
         </FormGroup>
         {/* t_end is still required but is the same as desired time */}
         <FormGroup className="form-group"> {/* Apply the form-group class */}
-          <Label for="desiredTime">Desired Time:</Label>
+          <Label for="desiredTime">Desired Time (mins):</Label>
           <Input
             type="number"
             id="desiredTime"

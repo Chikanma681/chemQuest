@@ -55,7 +55,7 @@
   body {
     margin: 0;
     background-color: #242424;
-    min-height: 100vh;
+    min-height: 160vh;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     color: #ffffff;
   }

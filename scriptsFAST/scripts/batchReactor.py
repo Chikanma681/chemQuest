@@ -49,9 +49,9 @@ def calculateBatch(C: list, k1, t_end, desired_time):
 
     # Upload the image to Cloudinary
     cloudinary.config(
-        cloud_name="chikanma681",
-        api_key="811253423913949",
-        api_secret="cL01nFsZaQFV66CV8pDu1ECgWdo"
+        cloud_name="cloud_name",
+        api_key="api_key",
+        api_secret="secret"
     )
 
     upload_result = cloudinary.uploader.upload(temp_file)

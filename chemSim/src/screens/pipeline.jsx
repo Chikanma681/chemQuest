@@ -77,7 +77,7 @@ const Pipeline = () => {
       </alert>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
-          <Label for="diameter">Diameter:</Label>
+          <Label for="diameter">Diameter (mm):</Label>
           <Input
             type="number"
             id="diameter"
@@ -98,7 +98,7 @@ const Pipeline = () => {
           </Tooltip>
         </FormGroup>
         <FormGroup>
-          <Label for="thickness">Thickness:</Label>
+          <Label for="thickness">Thickness (mm):</Label>
           <Input
             type="number"
             id="thickness"
@@ -119,7 +119,7 @@ const Pipeline = () => {
           </Tooltip>
         </FormGroup>
         <FormGroup>
-          <Label for="grade">Grade:</Label>
+          <Label for="grade">Grade (MPa):</Label>
           <Input
             type="number"
             id="grade"
@@ -140,7 +140,7 @@ const Pipeline = () => {
           </Tooltip>
         </FormGroup>
         <FormGroup>
-          <Label for="operatingPressure">Operating Pressure:</Label>
+          <Label for="operatingPressure">Operating Pressure (MPa):</Label>
           <Input
             type="number"
             id="operatingPressure"
