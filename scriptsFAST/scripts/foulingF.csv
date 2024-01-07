@@ -1,11 +1,18 @@
-Fluid,Fouling resistance in m2.K/W
+Fluid,Fouling resistance (m²·K/W)
+Ammonia vapor,0.0001763
+Engine exhaust gas,0.001763
+Engine Lube Oil,0.0001763
 Fuel Oil #2,0.0003526
 Fuel Oil #6,0.0008815
+Natural Gas,0.0001763
+Nitrogen,8.815E-05
+Refrigerant Vapors,0.0003526
+Steam ,8.815E-05
 Transformer Oil,0.0001763
-Engine Lube Oil,0.0001763
+
+
 Quench oil,0.0007052
 Acid gas,0.0003526
-Ammonia vapor,0.0001763
 Chlorinated hydrocarbons vapors,0.0001763
 Chlorine Vapor,0.0003526
 CO2 vapor,0.0001763

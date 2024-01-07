@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './../css/Sim.css'; // Import the CSS file
 
 const BatchReactor = () => {
+    // add a+b -> C and pciture of a batch reactor
   const navigate = useNavigate();
 
   const [calcType, setCalcType] = useState('');
@@ -82,7 +83,7 @@ const BatchReactor = () => {
             required
           />
         </FormGroup>
-        <Button type="submit" className="btn-submit">Simulate</Button> {/* Apply the btn-submit class */}
+        <button type="submit" className="btn-submit"><strong>Simulate</strong></button> {/* Apply the btn-submit class */}
       </Form>
     </div>
   );

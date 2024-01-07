@@ -1,7 +1,7 @@
 /* Sim.css */
 .batch-reactor-screen {
     margin: 50px auto;
-    max-width: 400px;
+    max-width: 700px;
     padding: 20px;
     background-color: #242424;
     color: #fff;
@@ -58,5 +58,15 @@
     min-height: 100vh;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     color: #ffffff;
+  }
+  
+  .pipeline-alert {
+    background-color: #242424;
+    border-color: black;
+    color: #646cff;
+    font-weight: 600;
+    border-radius: 1px;
+    padding: 15px;
+    margin: 15px;
   }
   
