@@ -2,6 +2,7 @@ from flask import Flask, jsonify, session, request
 from flask_cors import CORS 
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+import time
 
 # from flask_cors import CORS
 from scripts.heatExchanger import heatExchanger
@@ -33,25 +34,35 @@ def index():
 @app.route('/run', methods=['POST'])
 def run_algorithm():
     data = request.json
-    if not data or 'calcType' not in data or 'initialConcCa' not in data or 'initialConcCb' not in data or 'initialConcCc' not in data or 'reactionRate' not in data or 'desiredTime' not in data:
-        return jsonify({'error': 'Invalid data or missing required fields'})
+    time.sleep(2)
+    # if not data:
+    #     return jsonify({'error': 'Invalid data or missing required fields'})
 
     calcType = data['calcType']
-    Ca = data['initialConcCa']
-    Cb = data['initialConcCb']
-    Cc = data['initialConcCc']
-    k1 = data['reactionRate']
-    t = data['desiredTime']
-    t_desired = data['desiredTime']
-    print(Ca,Cb,Cc,k1,t)
-
+    print(data)
     result = None
 
     if calcType == "hx":
-        result = heatExchanger(data)
+        ff = data['foulingFluid']
+        area=data['area']
+        U = data['heatCoefficient']
+        Thi = data['Thi']
+        Tho = data['Tho']
+        Tci = data['Tci']
+        Tco = data['Tco']
+        print(data)
+        result = heatExchanger(ff,area,U,[Thi,Tho,Tci,Tco])
+        print(result)
     elif calcType == "pipe":
         result = pipelineDesign(data)
     elif calcType == "calculate":
+        Ca = data['initialConcCa']
+        Cb = data['initialConcCb']
+        Cc = data['initialConcCc']
+        k1 = data['reactionRate']
+        t = data['desiredTime']
+        t_desired = data['desiredTime']
+        print(Ca,Cb,Cc,k1,t)
         result = calculateBatch([Ca, Cb, Cc], k1, t, t_desired)
     else:
         return jsonify({'error': 'Invalid calcType'})
