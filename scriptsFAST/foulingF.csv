@@ -1,0 +1,26 @@
+Fluid,Fouling resistance in m2.K/W
+Fuel Oil #2,0.0003526
+Fuel Oil #6,0.0008815
+Transformer Oil,0.0001763
+Engine Lube Oil,0.0001763
+Quench oil,0.0007052
+Acid gas,0.0003526
+Ammonia vapor,0.0001763
+Chlorinated hydrocarbons vapors,0.0001763
+Chlorine Vapor,0.0003526
+CO2 vapor,0.0001763
+Coal flue gas,0.001763
+Compressed Air,0.0001763
+Engine exhaust gas,0.001763
+Hydrogen,8.815E-05
+Hydrogen (saturated with water),0.0003526
+Light Hydrocarbon vapors (clean),0.0001763
+Natural Gas,0.0001763
+Natural Gas Flue Gas,0.0008815
+Nitrogen,8.815E-05
+Polymerizable vapors (with inhibitor),0.0005289-0.005289
+Refrigerant Vapors (oil bearing),0.0003526
+Solvent Vapor,0.0001763
+Stable Overhead Products,0.0001763
+Steam (non-oil bearing),8.815E-05
+Steam (exhaust, oil bearing),0.00026445
