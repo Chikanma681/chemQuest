@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
@@ -15,7 +14,7 @@ const DonutAnimation = () => {
     containerRef.current.appendChild(renderer.domElement);
 
     const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-    const material = new THREE.MeshNormalMaterial({ color: "646cf", wireframe: true });
+    const material = new THREE.MeshNormalMaterial({ wireframe: true });
     const donut = new THREE.Mesh(geometry, material);
     scene.add(donut);
 
@@ -26,7 +25,7 @@ const DonutAnimation = () => {
       donut.rotation.x += 0.01;
       donut.rotation.y += 0.01;
       renderer.render(scene, camera);
-    }
+    };
     animate();
 
     let myTween;
@@ -37,7 +36,7 @@ const DonutAnimation = () => {
       const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
       const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
       myTween = gsap.to(donut.rotation, { duration: 0.1, x: mouseY * -1, y: mouseX });
-    }
+    };
     window.addEventListener('mousemove', handleMouseMove);
 
     const animProps = { scale: 1 };
@@ -46,15 +45,18 @@ const DonutAnimation = () => {
       scale: 1.3,
       repeat: -1,
       yoyo: true,
-      ease: "sine",
+      ease: 'sine',
       onUpdate: () => {
         donut.scale.set(animProps.scale, animProps.scale, animProps.scale);
-      }
+      },
     });
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
-      containerRef.current.removeChild(renderer.domElement);
+      const element = renderer.domElement;
+      if (element && element.parentNode) {
+        element.parentNode.removeChild(element);
+      }
     };
   }, []);
 
