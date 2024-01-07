@@ -44,4 +44,6 @@ def calculateBatch(C:list, k1, t_end, desired_time):
     plt.show()
 
 
-calculateBatch([5, 3, 0], 0.4, 15, 10)  # Example: find concentrations at time t=10
+if __name__ == '__main__':
+    # You can put code here to test or run the heatExchanger script independently
+    pass

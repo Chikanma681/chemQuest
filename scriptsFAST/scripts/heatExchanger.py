@@ -6,4 +6,6 @@ def heatExchanger(F, area, U, T:list):
     q = F*area*U*lm_T
     return q
 
-
+if __name__ == '__main__':
+    # You can put code here to test or run the heatExchanger script independently
+    pass

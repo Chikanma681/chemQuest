@@ -6,14 +6,15 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import time
 
-# Launch the Chrome browser
-driver = webdriver.Chrome()
-
-# Open the website
-driver.get("https://mecsimcalc.com/app/9164993/pressure_design_of_pipeline_according_to_csa_z_662")  # Replace with the URL of the website
+  # Replace with the URL of the website
 
 def pipelineDesign(diameter, thickness, grade, OP, JF):
     "Remember LF and TF assumed to be 1.0"
+    # Launch the Chrome browser
+    driver = webdriver.Chrome()
+
+    # Open the website
+    driver.get("https://mecsimcalc.com/app/9164993/pressure_design_of_pipeline_according_to_csa_z_662")
     wait = WebDriverWait(driver, 10)
 
     input_element = driver.find_element(By.NAME, "d") #By diameter
@@ -76,4 +77,8 @@ def pipelineDesign(diameter, thickness, grade, OP, JF):
     driver.quit()
     return res
 
-print(pipelineDesign(300,6,340,8,"Submerged arc welded (1.00)"))
+
+
+if __name__ == '__main__':
+    # You can put code here to test or run the heatExchanger script independently
+    pass
