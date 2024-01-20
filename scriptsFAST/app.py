@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, session, request
 from flask_cors import CORS 
-from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
+# from flask_sqlalchemy import SQLAlchemy
+# from werkzeug.security import generate_password_hash, check_password_hash
 import time
 
 # from flask_cors import CORS
@@ -14,15 +14,15 @@ CORS(app)
 # CORS(app)
 app.secret_key = 'wdjrfbhibjksdsdzcx'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+# # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# db = SQLAlchemy(app)
 
 # Define User model
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(100), unique=True, nullable=False)
-    password = db.Column(db.String(100), nullable=False)
+# class User(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     username = db.Column(db.String(100), unique=True, nullable=False)
+#     password = db.Column(db.String(100), nullable=False)
 
 # Create database tables
 # db.create_all()
@@ -76,46 +76,46 @@ def run_algorithm():
 
     return jsonify(result)
 
-@app.route('/signup', methods=['POST'])
-def signup():
-    data = request.json
-    if not data or 'username' not in data or 'password' not in data:
-        return jsonify({'error': 'Invalid data or missing fields'})
+# @app.route('/signup', methods=['POST'])
+# def signup():
+#     data = request.json
+#     if not data or 'username' not in data or 'password' not in data:
+#         return jsonify({'error': 'Invalid data or missing fields'})
 
-    username = data['username']
-    password = data['password']
+#     username = data['username']
+#     password = data['password']
 
-    hashed_password = generate_password_hash(password)
+#     hashed_password = generate_password_hash(password)
 
-    new_user = User(username=username, password=hashed_password)
-    db.session.add(new_user)
-    db.session.commit()
+#     new_user = User(username=username, password=hashed_password)
+#     db.session.add(new_user)
+#     db.session.commit()
 
-    return jsonify({'message': 'User registered successfully'})
+#     return jsonify({'message': 'User registered successfully'})
 
-@app.route('/login', methods=['POST'])
-def login():
-    data = request.json
-    if not data or 'username' not in data or 'password' not in data:
-        return jsonify({'error': 'Invalid data or missing fields'})
+# @app.route('/login', methods=['POST'])
+# def login():
+#     data = request.json
+#     if not data or 'username' not in data or 'password' not in data:
+#         return jsonify({'error': 'Invalid data or missing fields'})
 
-    username = data['username']
-    password = data['password']
+#     username = data['username']
+#     password = data['password']
 
-    user = User.query.filter_by(username=username).first()
+#     user = User.query.filter_by(username=username).first()
 
-    if user and check_password_hash(user.password, password):
-        session['logged_in'] = True
-        session['username'] = username
-        return jsonify({'message': 'Login successful'})
-    else:
-        return jsonify({'error': 'Invalid username or password'})
+#     if user and check_password_hash(user.password, password):
+#         session['logged_in'] = True
+#         session['username'] = username
+#         return jsonify({'message': 'Login successful'})
+#     else:
+#         return jsonify({'error': 'Invalid username or password'})
 
-@app.route('/logout')
-def logout():
-    session.pop('logged_in', None)
-    session.pop('username', None)
-    return jsonify({'message': 'Logged out successfully'})
+# @app.route('/logout')
+# def logout():
+#     session.pop('logged_in', None)
+#     session.pop('username', None)
+#     return jsonify({'message': 'Logged out successfully'})
 
 if __name__ == '__main__':
     app.run(debug=True)
