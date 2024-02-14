@@ -126,6 +126,7 @@ const ProcessMenu = () => {
     { id: "batch", name: "Batch Reactor" },
     { id: "hx", name: "Heat Exchanger" },
     { id: "pipe", name: "Pressure Design of Pipeline According to CSA Z662" },
+    { id: "rachford", name: "Rachford Rice for Distillation" }
     // Add more processes as needed
   ];
 
